@@ -1,0 +1,26 @@
+{
+  "name": "numcalcjs",
+  "version": "1.0.0",
+  "description": "A numerical calculus JavaScript library.",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run -s test:build && npm run -s test:run",
+    "test:build": "rollup --output.format=es ./test/NumCalcJSTests.js > test/bundle.js",
+    "test:run": "karma start"
+  },
+  "keywords": [
+    "calculus",
+    "numerical calculus",
+    "math"
+  ],
+  "author": "Ari C. Raimundo",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.1",
+    "rollup": "^0.56.3",
+    "rollup-watch": "^4.3.1"
+  }
+}

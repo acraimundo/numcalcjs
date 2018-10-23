@@ -22,6 +22,7 @@
 	"globalstrict": false,
 	"immed": true,
 	"iterator": false,
+	"jasmine": true,
 	"jquery": false,
 	"lastsemic": false,
 	"latedef": false,
@@ -69,5 +70,9 @@
 	"maxerr": 250,
 	"predef": [ "require", "define" ],
 	"quotmark": "single",
-	"maxcomplexity": false
+	"maxcomplexity": false,
+
+    "globals": {
+		"module": false
+    }
 }

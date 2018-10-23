@@ -1,12 +1,9 @@
 export default {
-	entry: 'src/numcalc.js',
-	indent: '\t',
-	targets: [
-		{
-			format: 'umd',
-			moduleName: 'NumCalcJS',
-			dest: 'build/numcalcjs.js'
-		}
-	],
-	sourceMap: true
+	input: 'src/NumCalcJS.js',
+	output: [{
+		format: 'umd',
+		name: 'NumCalcJS',
+		file: 'build/numcalcjs.js',
+		sourcemap: true
+	}]
 };

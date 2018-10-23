@@ -2,11 +2,12 @@
   "name": "numcalcjs",
   "version": "1.0.0",
   "description": "A numerical calculus JavaScript library.",
-  "main": "index.js",
+  "main": "NumCalcJS.js",
   "scripts": {
     "test": "npm run -s test:build && npm run -s test:run",
     "test:build": "rollup --output.format=es ./test/NumCalcJSTests.js > test/bundle.js",
-    "test:run": "karma start"
+    "test:run": "karma start",
+    "build": "rollup -c --environment INCLUDE_DEPS,BUILD:production"
   },
   "keywords": [
     "calculus",

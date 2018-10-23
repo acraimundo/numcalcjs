@@ -12,14 +12,14 @@ Bisection.findRoot = function(a, b, precision, f, maxNumberOfIterations) {
     var e = Math.abs(precision);
     var fa = f(a);
     var fb = f(b);
-    var k, m, c;
+    var k, c;
 
-    if (fa * fb >= 0.) {
+    if (fa * fb >= 0.0) {
         throw 'Invalid interval [a, b].';
     }
 
     if (Math.abs(b - a) < e) {
-        return (a + b) / 2.;
+        return (a + b) / 2.0;
     }
 
     k = 1;
@@ -27,7 +27,7 @@ Bisection.findRoot = function(a, b, precision, f, maxNumberOfIterations) {
     do {
 
         fa = f(a);
-        c = (a + b) / 2.;
+        c = (a + b) / 2.0;
 
         if (Math.sign(fa) == Math.sign(f(c))) {
             a = c;
@@ -36,7 +36,7 @@ Bisection.findRoot = function(a, b, precision, f, maxNumberOfIterations) {
         }
 
         if (Math.abs(b - a) < e) {
-            return (a + b) / 2.;
+            return (a + b) / 2.0;
         }
 
         k++;

@@ -26,20 +26,20 @@ class Bisection {
 
 		do {
 
-				fa = f(a);
-				c = (a + b) / 2.0;
+			fa = f(a);
+			c = (a + b) / 2.0;
 
-				if (Math.sign(fa) == Math.sign(f(c))) {
-					a = c;
-				} else {
-					b = c;
-				}
+			if (Math.sign(fa) == Math.sign(f(c))) {
+				a = c;
+			} else {
+				b = c;
+			}
 
-				if (Math.abs(b - a) < e) {
-					return (a + b) / 2.0;
-				}
+			if (Math.abs(b - a) < e) {
+				return (a + b) / 2.0;
+			}
 
-				k++;
+			k++;
 
 		} while (k < maxIteration);
 

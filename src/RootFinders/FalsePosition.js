@@ -1,7 +1,7 @@
 import { MaximumNumberOfIterations } from '../constants.js';
-import { InvalidParameterError, DivergenceError } from '../Exceptions.js';
+import { DivergenceError, InvalidParameterError } from '../../src/Exceptions';
 
-class Bisection {
+class FalsePosition {
 
 	static findRoot (a, b, precision, f, maxNumberOfIterations) {
 
@@ -13,7 +13,7 @@ class Bisection {
 		const e = Math.abs(precision);
 		let fa = f(a);
 		let fb = f(b);
-		let k, c;
+		let k, x, m, fx;
 
 		if (fa * fb >= 0.0) {
 			throw new InvalidParameterError('Invalid interval [a, b].');
@@ -21,24 +21,36 @@ class Bisection {
 
 		if (Math.abs(b - a) < e) {
 			return (a + b) / 2.0;
-		}
+		} else if (Math.abs(fa) < e) {
+      return a;
+    } else if (Math.abs(fb) < e) {
+      return b;
+    }
 
 		k = 1;
 
 		do {
 
-			fa = f(a);
-			c = (a + b) / 2.0;
+      fa = f(a);
+      fb = f(b);
+      m = fa;
 
-			if (Math.sign(fa) == Math.sign(f(c))) {
-				a = c;
+      x = (a * fb - b * fa) / (fb - fa);
+      fx = f(x);
+
+			if (Math.abs(fx) < e) {
+				return x;
+			}
+
+			if ((m * fx) > 0) {
+				a = x;
 			} else {
-				b = c;
-			}
+        b = x;
+      }
 
-			if (Math.abs(b - a) < e) {
-				return (a + b) / 2.0;
-			}
+      if (Math.abs(b - a) < e) {
+        return (a + b) / 2;
+      }
 
 			k++;
 
@@ -48,4 +60,4 @@ class Bisection {
 	}
 }
 
-export { Bisection };
+export { FalsePosition };
